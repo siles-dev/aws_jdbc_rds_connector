@@ -1,0 +1,18 @@
+# aws_jdbc_rds_connector
+A jdbc connection to be used in a lambda function to access an aws rds postgres db.
+
+To run locally, the following environment variables need to be provided pertaining to AWS configuration of RDS DB:
+- RDS_HOST
+- RDS_PORT
+- RDS_DB_NAME
+- RDS_USERNAME
+- RDS_PASSWORD
+
+To use in AWS:
+
+1. Create JAR by running `mvn clean package -Dmaven.test.skip=true`
+2. Create a role that can access the services.
+3. Create a Lambada function that has access to the same VPC  or use the created role(look in advanced settings).
+4. Then upload JAR into AWS lambda function running JAVA(11).
+5. Configure the request handler class
+6. Configure the same environment variables.
